@@ -4,25 +4,18 @@
     <div class="row"><div class="col col-sm-6 col-md-8 col-lg-10 col-xl-12 col-xxl-12">
 <form action="/complaint" method="post"><table class="table">
 <tr>
-    <td>
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Description</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" name="description">
-          </div>
-    </td>
+    <td>Description</td>
+    <td><input type="text" name="description" class="form-control"></td>
 </tr>
 <tr>
-    <td>
-        <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Remarks</label>
-            <textarea class="form-control" name="remark" id="exampleFormControlTextarea1" rows="3"></textarea>
-    </td>
-</tr><tr>
-    <td>
-        <button type="submit" name="comp" class="btn btn-success">Complain</button>
-    </td>
+    <td>Remarks</td>
+    <td><input type="text" name="remark" class="form-control"></td>
+</tr>
+<tr>
+    <td></td>
+    <td><button type="submit" class="btn btn-success">Complain</button></td>
 </tr>
   </table>
 </form>
-  </div></div></div></div>
+  </div></div></div>
   {% endblock %}

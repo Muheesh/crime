@@ -24,18 +24,15 @@
             <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                 {% if status %}
                 <table class="table">
-                  <thead>
-
+                  <thead></thead>
                     <tr>
                       <th scope="col">Crime Description</th>
                       <th scope="col">Remarks</th>
-                      
-
                     </tr>
 
                   </thead>
                   <tbody>
-                      {% for i in search %}
+                      {% for i in crime %}
                       <tr>
                           <td>{{i[1]}}</td>
                           <td>{{i[2]}}</td>

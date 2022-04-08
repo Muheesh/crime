@@ -8,8 +8,9 @@ from datetime import date
 data = sqlite3.connect("report.db",check_same_thread=False)
 table1 = data.execute("select * from sqlite_master where type = 'table' and name = 'crime'").fetchall()
 table2 = data.execute("select * from sqlite_master where type = 'table' and name = 'user'").fetchall()
+
 if table1!=[]:
-    print("Crime table already exists")
+    print("User table already exists")
 else:
     data.execute('''create table crime(
                             id integer primary key autoincrement,
@@ -65,16 +66,16 @@ def View_report():
 @app.route('/sort',methods=['GET','POST'])
 def Search_crime():
     if request.method == 'POST':
-        getDate = request.form["date"]
+        getDate = str(request.form["date"])
         cursor = data.cursor()
-        count = cursor.execute("select * from crime where date="+getDate)
+        count = cursor.execute("select * from crime where date='"+getDate+"' ")
         result = cursor.fetchall()
         if result is None:
             print("There is no Crime on",getDate)
         else:
-            return render_template("sortdate.html",search=result,status=True)
+            return render_template("sortdate.html",crime=result,status=True)
     else:
-        return render_template("sortdate.html",search=[],status=False)
+        return render_template("sortdate.html",crime=[],status=False)
 
 
 
@@ -86,14 +87,16 @@ def User_register():
         getEmail = request.form["email"]
         getPhone = request.form["phone"]
         getPass = request.form["pass"]
+        print(getName,getAddress,getEmail,getPhone)
         try:
             data.execute("insert into user(name,address,email,phone,password) \
             values('"+getName+"','"+getAddress+"','"+getEmail+"',"+getPhone+",'"+getPass+"')")
             data.commit()
+            print("Inserted Successfully")
             return redirect('/complaint')
         except Exception as err:
             print(err)
-    return render_template("register.html",status=True)
+    return render_template("register.html")
 
 @app.route('/user',methods=['GET','POST'])
 def Login_user():
@@ -109,9 +112,12 @@ def Login_user():
                 getId = i[0]
                 session["name"] = getName
                 session["id"] = getId
-            return redirect('/complaint')
-        else:
-            return render_template("userlogin.html",status=True)
+                if (getEmail == i[3] and getPass == i[5]):
+                    print("password correct")
+                    return redirect('/complaint')
+
+                else:
+                    return render_template("userlogin.html",status=True)
     else:
         return render_template("userlogin.html",status=False)
 
@@ -124,16 +130,20 @@ def userpage():
 
 
 @app.route('/complaint',methods=['GET','POST'])
-def report_crime():
+def Report_crime():
     if request.method == 'POST':
         getDescrip = request.form["description"]
         getRemark = request.form["remark"]
-        getDate = date.today()
+        print(getDescrip)
+        print(getRemark)
+        getDate = str(date.today())
         cursor = data.cursor()
-        cursor.execute("insert into crime(description,remarks) values('"+getDescrip+"','"+getRemark+"','"+getDate+"')")
+        query = "insert into crime(description,remarks,date) values('"+getDescrip+"','"+getRemark+"','"+getDate+"')"
+        cursor.execute(query)
         data.commit()
+        print(query)
         print("Inserted Successfully")
-        return redirect('/')
+        return redirect('/user')
     return render_template("complaint.html")
 
 @app.route('/update',methods=['GET','POST'])
@@ -142,7 +152,7 @@ def Update_user():
     if request.method == 'POST':
         getUser = request.form["name"]
         cursor = data.cursor()
-        count = cursor.execute("select * from user where name="+getUser)
+        count = cursor.execute("select * from user where name='"+getUser+"' ")
         return redirect('/edit')
     return render_template("update.html",status=True)
 
@@ -157,7 +167,9 @@ def User_edit():
         getPass = request.form["pass"]
         data.execute("update user set name='"+getName+"',address='"+getAddress+"',email='"+getEmail+"',phone="+getPhone+",password='"+getPass+"' where name='"+getUser+"'")
         data.commit()
+        print("Edited Successfully")
         return redirect('/user')
+
 
     return render_template("edituser.html")
 
