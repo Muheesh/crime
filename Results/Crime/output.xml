@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0 (Python 3.9.10 on win32)" generated="20220409 01:26:05.450" rpa="false" schemaversion="3">
+<suite id="s1" name="Crime" source="C:\Users\Muheesh\PycharmProjects\Robot_Crime\Tests\Crime\FunctionalTestSuite\Crime.robot">
+<test id="s1-t1" name="Guest User Test" line="8">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${web_url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220409 01:26:05.982" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:5000'.</msg>
+<status status="PASS" starttime="20220409 01:26:05.982" endtime="20220409 01:26:07.983"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//html/body/div[2]/div/div/div/form/table/tbody/tr[4]/td[2]/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220409 01:26:07.983" level="INFO">Clicking element 'xpath=//html/body/div[2]/div/div/div/form/table/tbody/tr[4]/td[2]/a'.</msg>
+<status status="PASS" starttime="20220409 01:26:07.983" endtime="20220409 01:26:08.103"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220409 01:26:09.109" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20220409 01:26:08.103" endtime="20220409 01:26:09.109"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//html/body/div[2]/div/div/form/table/tbody/tr[5]/td[2]/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220409 01:26:09.110" level="INFO">Clicking element 'xpath=//html/body/div[2]/div/div/form/table/tbody/tr[5]/td[2]/a'.</msg>
+<status status="PASS" starttime="20220409 01:26:09.110" endtime="20220409 01:26:09.185"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220409 01:26:10.190" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20220409 01:26:09.185" endtime="20220409 01:26:10.190"/>
+</kw>
+<kw name="Test 1 Description">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>name:description</arg>
+<arg>robbery</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220409 01:26:10.191" level="INFO">Typing text 'robbery' into text field 'name:description'.</msg>
+<status status="PASS" starttime="20220409 01:26:10.191" endtime="20220409 01:26:10.263"/>
+</kw>
+<status status="PASS" starttime="20220409 01:26:10.191" endtime="20220409 01:26:10.263"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220409 01:26:11.270" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20220409 01:26:10.263" endtime="20220409 01:26:11.270"/>
+</kw>
+<kw name="Test 1 Remark">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>name:remark</arg>
+<arg>chain</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220409 01:26:11.270" level="INFO">Typing text 'chain' into text field 'name:remark'.</msg>
+<status status="PASS" starttime="20220409 01:26:11.270" endtime="20220409 01:26:11.329"/>
+</kw>
+<status status="PASS" starttime="20220409 01:26:11.270" endtime="20220409 01:26:11.329"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220409 01:26:12.341" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20220409 01:26:11.337" endtime="20220409 01:26:12.341"/>
+</kw>
+<doc>This test is for guest</doc>
+<tag>user</tag>
+<status status="PASS" starttime="20220409 01:26:05.982" endtime="20220409 01:26:12.341"/>
+</test>
+<test id="s1-t2" name="User Register Test" line="21">
+<doc>This test is to register user</doc>
+<tag>user</tag>
+<status status="FAIL" starttime="20220409 01:26:12.341" endtime="20220409 01:26:12.341">Test contains no keywords.</status>
+</test>
+<test id="s1-t3" name="Registered User Login Test" line="26">
+<doc>This test is to login user</doc>
+<tag>user</tag>
+<status status="FAIL" starttime="20220409 01:26:12.341" endtime="20220409 01:26:12.341">Test contains no keywords.</status>
+</test>
+<test id="s1-t4" name="User Report Crime Test" line="30">
+<doc>This test is to report crime</doc>
+<tag>user</tag>
+<status status="FAIL" starttime="20220409 01:26:12.341" endtime="20220409 01:26:12.341">Test contains no keywords.</status>
+</test>
+<test id="s1-t5" name="User Modify Test" line="34">
+<doc>This test is for modification</doc>
+<tag>user</tag>
+<status status="FAIL" starttime="20220409 01:26:12.341" endtime="20220409 01:26:12.341">Test contains no keywords.</status>
+</test>
+<test id="s1-t6" name="User Logout" line="38">
+<doc>This test is to logout</doc>
+<tag>user</tag>
+<status status="FAIL" starttime="20220409 01:26:12.341" endtime="20220409 01:26:12.341">Test contains no keywords.</status>
+</test>
+<test id="s1-t7" name="Admin Login Test" line="42">
+<doc>This test is for admin login</doc>
+<tag>admin</tag>
+<status status="FAIL" starttime="20220409 01:26:12.350" endtime="20220409 01:26:12.350">Test contains no keywords.</status>
+</test>
+<test id="s1-t8" name="Admin View Report Test" line="46">
+<doc>This test is to view report</doc>
+<tag>admin</tag>
+<status status="FAIL" starttime="20220409 01:26:12.350" endtime="20220409 01:26:12.350">Test contains no keywords.</status>
+</test>
+<test id="s1-t9" name="Admin Search Report Test" line="50">
+<doc>This test is to search report</doc>
+<tag>admin</tag>
+<status status="FAIL" starttime="20220409 01:26:12.350" endtime="20220409 01:26:12.350">Test contains no keywords.</status>
+</test>
+<test id="s1-t10" name="Admin Logout" line="54">
+<doc>This test to logout admin</doc>
+<tag>admin</tag>
+<status status="FAIL" starttime="20220409 01:26:12.350" endtime="20220409 01:26:12.350">Test contains no keywords.</status>
+</test>
+<status status="FAIL" starttime="20220409 01:26:05.450" endtime="20220409 01:26:12.355"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="9" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="4" skip="0">admin</stat>
+<stat pass="1" fail="5" skip="0">user</stat>
+</tag>
+<suite>
+<stat pass="1" fail="9" skip="0" id="s1" name="Crime">Crime</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
